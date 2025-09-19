@@ -10,10 +10,10 @@ export const NavigationJson = {
       "link": "/dashboard",
       "iconpath": "fa fa-tachometer-alt",
       "target": "",
-      "device":  ["pc","mob"],
+      // "device":  ["pc","mob"],
       "weight": 1,
       "onmenu": true,
-      "blocked": false
+      "blocked": true
     },
     {
       "type": "link",

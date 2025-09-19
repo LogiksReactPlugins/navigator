@@ -10,7 +10,7 @@ import './App.css'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <Navigator navJson={NavigationJson} hideLabel={true} />
+      <Navigator navJson={NavigationJson} />
     </BrowserRouter>
   </StrictMode>,
 )
