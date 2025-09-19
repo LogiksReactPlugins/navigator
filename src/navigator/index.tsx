@@ -105,12 +105,17 @@ function Navigator({ navJson: config, hideLabel = false }: any) {
 
   visibleItems.forEach((item: any) => {
     if (item?.menugroup && item?.menugroup !== "nogroup") {
-      if (!groupMap[item?.menugroup]) groupMap[item?.menugroup] = [];
-      groupMap[item?.menugroup].push(item);
+      if (item.type === "dropdown") {
+        standaloneItems.push(item);
+      } else {
+        if (!groupMap[item.menugroup]) groupMap[item.menugroup] = [];
+        groupMap[item.menugroup].push(item);
+      }
     } else {
       standaloneItems.push(item);
     }
   });
+
 
   return (
     <nav
@@ -119,7 +124,8 @@ function Navigator({ navJson: config, hideLabel = false }: any) {
       {standaloneItems
         .sort((a: any, b: any) => (a.weight || 0) - (b.weight || 0))
         .map((item: any, index: number) => {
-          const childItems = groupMap[item?.label || item?.title];
+          const childItems = groupMap[item?.menugroup];
+
           const content = (
             <>
               {item?.iconpath && <i className={item?.iconpath}></i>}

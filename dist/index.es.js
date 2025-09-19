@@ -51,7 +51,7 @@ function ie() {
         return e.$$typeof === ne ? null : e.displayName || e.name || null;
       if (typeof e == "string") return e;
       switch (e) {
-        case x:
+        case _:
           return "Fragment";
         case X:
           return "Profiler";
@@ -109,7 +109,7 @@ function ie() {
       }
     }
     function p(e) {
-      if (e === x) return "<>";
+      if (e === _) return "<>";
       if (typeof e == "object" && e !== null && e.$$typeof === $)
         return "<...>";
       try {
@@ -151,7 +151,7 @@ function ie() {
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), e = this.props.ref, e !== void 0 ? e : null;
     }
-    function _(e, r, a, i, g, m, S, P) {
+    function x(e, r, a, i, g, m, S, P) {
       return a = m.ref, e = {
         $$typeof: k,
         type: e,
@@ -222,7 +222,7 @@ React keys must be passed directly to JSX without using spread:
       return u && d(
         a,
         typeof e == "function" ? e.displayName || e.name || "Unknown" : e
-      ), _(
+      ), x(
         e,
         u,
         m,
@@ -236,7 +236,7 @@ React keys must be passed directly to JSX without using spread:
     function h(e) {
       typeof e == "object" && e !== null && e.$$typeof === k && e._store && (e._store.validated = 1);
     }
-    var E = oe, k = Symbol.for("react.transitional.element"), y = Symbol.for("react.portal"), x = Symbol.for("react.fragment"), N = Symbol.for("react.strict_mode"), X = Symbol.for("react.profiler"), B = Symbol.for("react.consumer"), Z = Symbol.for("react.context"), H = Symbol.for("react.forward_ref"), Q = Symbol.for("react.suspense"), K = Symbol.for("react.suspense_list"), ee = Symbol.for("react.memo"), $ = Symbol.for("react.lazy"), re = Symbol.for("react.activity"), ne = Symbol.for("react.client.reference"), A = E.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, Y = Object.prototype.hasOwnProperty, te = Array.isArray, O = console.createTask ? console.createTask : function() {
+    var E = oe, k = Symbol.for("react.transitional.element"), y = Symbol.for("react.portal"), _ = Symbol.for("react.fragment"), N = Symbol.for("react.strict_mode"), X = Symbol.for("react.profiler"), B = Symbol.for("react.consumer"), Z = Symbol.for("react.context"), H = Symbol.for("react.forward_ref"), Q = Symbol.for("react.suspense"), K = Symbol.for("react.suspense_list"), ee = Symbol.for("react.memo"), $ = Symbol.for("react.lazy"), re = Symbol.for("react.activity"), ne = Symbol.for("react.client.reference"), A = E.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, Y = Object.prototype.hasOwnProperty, te = Array.isArray, O = console.createTask ? console.createTask : function() {
       return null;
     };
     E = {
@@ -248,7 +248,7 @@ React keys must be passed directly to JSX without using spread:
       E,
       l
     )(), L = O(p(l)), M = {};
-    T.Fragment = x, T.jsx = function(e, r, a, i, g) {
+    T.Fragment = _, T.jsx = function(e, r, a, i, g) {
       var m = 1e4 > A.recentlyCreatedOwnerStacks++;
       return n(
         e,
@@ -327,7 +327,7 @@ const G = ({ children: o }) => /* @__PURE__ */ t.jsx("div", { className: "flex i
                 V,
                 {
                   to: c?.link,
-                  className: ({ isActive: _ }) => `flex items-center gap-2 px-2 py-1 hover:bg-gray-100 ${_ ? "bg-action text-white link-active" : ""}`,
+                  className: ({ isActive: x }) => `flex items-center gap-2 px-2 py-1 hover:bg-gray-100 ${x ? "bg-action text-white link-active" : ""}`,
                   children: v
                 },
                 d
@@ -345,15 +345,15 @@ function ve({ navJson: o, hideLabel: b = !1 }) {
     const n = () => p(J());
     return window.addEventListener("resize", n), () => window.removeEventListener("resize", n);
   }, []);
-  const d = (o?.items || []).filter((n) => n.onmenu === !1 ? !1 : !n?.device || n?.device === "*" ? !0 : Array.isArray(n?.device) ? n?.device.includes(f) : n?.device === f), v = {}, _ = [];
+  const d = (o?.items || []).filter((n) => n.onmenu === !1 ? !1 : !n?.device || n?.device === "*" ? !0 : Array.isArray(n?.device) ? n?.device.includes(f) : n?.device === f), v = {}, x = [];
   return d.forEach((n) => {
-    n?.menugroup && n?.menugroup !== "nogroup" ? (v[n?.menugroup] || (v[n?.menugroup] = []), v[n?.menugroup].push(n)) : _.push(n);
+    n?.menugroup && n?.menugroup !== "nogroup" ? n.type === "dropdown" ? x.push(n) : (v[n.menugroup] || (v[n.menugroup] = []), v[n.menugroup].push(n)) : x.push(n);
   }), /* @__PURE__ */ t.jsx(
     "nav",
     {
       className: `navigator ${o?.className || ""} flex ${l} gap-2 text-action`,
-      children: _.sort((n, h) => (n.weight || 0) - (h.weight || 0)).map((n, h) => {
-        const E = v[n?.label || n?.title], k = /* @__PURE__ */ t.jsxs(t.Fragment, { children: [
+      children: x.sort((n, h) => (n.weight || 0) - (h.weight || 0)).map((n, h) => {
+        const E = v[n?.menugroup], k = /* @__PURE__ */ t.jsxs(t.Fragment, { children: [
           n?.iconpath && /* @__PURE__ */ t.jsx("i", { className: n?.iconpath }),
           !b && /* @__PURE__ */ t.jsx("span", { children: n?.label || n?.title })
         ] });
@@ -363,7 +363,7 @@ function ve({ navJson: o, hideLabel: b = !1 }) {
             {
               parentItem: n,
               items: E.sort(
-                (x, N) => (x.weight || 0) - (N.weight || 0)
+                (_, N) => (_.weight || 0) - (N.weight || 0)
               ),
               isHorizontal: s,
               hideLabel: b
@@ -387,7 +387,7 @@ function ve({ navJson: o, hideLabel: b = !1 }) {
           V,
           {
             to: n?.link,
-            className: ({ isActive: x }) => `flex items-center gap-2 px-2 py-1 hover:bg-gray-200 ${x ? "bg-action text-white link-active" : ""} nav-link`,
+            className: ({ isActive: _ }) => `flex items-center gap-2 px-2 py-1 hover:bg-gray-200 ${_ ? "bg-action text-white link-active" : ""} nav-link`,
             children: k
           },
           h
