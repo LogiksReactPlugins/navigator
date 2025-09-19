@@ -184,7 +184,7 @@
 // export default Navigator;
 
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 function getDeviceType() {
   if (window.innerWidth <= 768) return "mob";
@@ -217,7 +217,7 @@ const Dropdown = ({ parentItem, items, isHorizontal }: any) => {
       <div
         className={`absolute z-10 bg-white shadow-md min-w-max ${
           open ? "block" : "hidden"
-        } ${isHorizontal ? "left-0 top-full" : "left-full top-0"}`}
+        } ${isHorizontal ? "left-0 top-full" : "left-full top-0"} nav-dropdown`}
       >
         <div className="flex flex-col">
           {items.map((item: any, index: number) =>
@@ -227,7 +227,7 @@ const Dropdown = ({ parentItem, items, isHorizontal }: any) => {
                 href={item.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-2 py-1 hover:bg-gray-100"
+                className="flex items-center gap-2 px-2 py-1 hover:bg-gray-100 nav-link"
               >
                 {item.iconpath && <i className={item.iconpath}></i>}
                 <span>{item.label || item.title}</span>
@@ -238,7 +238,7 @@ const Dropdown = ({ parentItem, items, isHorizontal }: any) => {
                 to={item.link}
                 className={({ isActive }) =>
                   `flex items-center gap-2 px-2 py-1 hover:bg-gray-100 ${
-                    isActive ? "bg-action text-white" : ""
+                    isActive ? "bg-action text-white  link-active" : ""
                   }`
                 }
               >
@@ -255,8 +255,9 @@ const Dropdown = ({ parentItem, items, isHorizontal }: any) => {
 
 function Navigator({ config }: any) {
   const [currentDevice, setCurrentDevice] = useState(getDeviceType());
-  const isHorizontal = config.layout === "horizontal";
+  const isHorizontal = config?.layout === "horizontal";
   const layoutClass = isHorizontal ? "flex-row" : "flex-col";
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => setCurrentDevice(getDeviceType());
@@ -264,7 +265,6 @@ function Navigator({ config }: any) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // filter visible items
   const visibleItems = (config.items || []).filter((item: any) => {
     if (!item.onmenu) return false;
     if (!item.device || item.device === "*") return true;
@@ -286,7 +286,7 @@ function Navigator({ config }: any) {
 
   return (
     <nav
-      className={`navigator ${config.className || ""} flex ${layoutClass} gap-2 text-action`}
+      className={`navigator ${config?.className || ""} flex ${layoutClass} gap-2 text-action`}
     >
       {standaloneItems
         .sort((a: any, b: any) => (a.weight || 0) - (b.weight || 0))
@@ -305,13 +305,17 @@ function Navigator({ config }: any) {
             );
           }
 
+          const isActiveLink = item.link && location.pathname === item.link;
+
           return item?.target === "_blank" ? (
             <a
               key={index}
               href={item?.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-2 py-1 hover:bg-gray-200"
+              className={`flex items-center gap-2 px-2 py-1 hover:bg-gray-200 ${
+                isActiveLink ? "bg-action text-white  link-active" : ""
+              } nav-link`}
             >
               {item?.iconpath && <i className={item?.iconpath}></i>}
               <span>{item?.label || item?.title}</span>
@@ -322,8 +326,8 @@ function Navigator({ config }: any) {
               to={item?.link}
               className={({ isActive }) =>
                 `flex items-center gap-2 px-2 py-1 hover:bg-gray-200 ${
-                  isActive ? "bg-action text-white" : ""
-                }`
+                  isActive ? "bg-action text-white link-active" : ""
+                } nav-link`
               }
             >
               {item?.iconpath && <i className={item?.iconpath}></i>}
