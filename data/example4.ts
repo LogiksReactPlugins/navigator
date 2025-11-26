@@ -1,7 +1,9 @@
 export const NavigationJson = {
   className: "custom-sidebar",
   theme: "dark",
-  layout: "vertical",
+  // layout: "tree",
+
+  
   items: [
     {
       title: "Dashboard",
@@ -112,6 +114,18 @@ export const NavigationJson = {
             }
           ]
         }
+        , {
+          title: "demo",
+          label: "demo",
+          link: "/masters/demo",
+          iconpath: "fa fa-city",
+          target: "",
+          device: "*",
+          weight: 2,
+          onmenu: true,
+          blocked: false,
+          element: "demo"
+        }
       ]
     },
     {
@@ -171,7 +185,7 @@ export const NavigationJson = {
       device: "*",
       weight: 5,
       onmenu: true,
-      blocked: false,
+      blocked: true,
       element: "SettingsPage"
     }
   ]
