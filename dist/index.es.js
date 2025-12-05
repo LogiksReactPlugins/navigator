@@ -42,9 +42,9 @@ var w = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var J;
+var q;
 function fe() {
-  return J || (J = 1, process.env.NODE_ENV !== "production" && (function() {
+  return q || (q = 1, process.env.NODE_ENV !== "production" && (function() {
     function t(e) {
       if (e == null) return null;
       if (typeof e == "function")
@@ -275,12 +275,12 @@ React keys must be passed directly to JSX without using spread:
     };
   })()), w;
 }
-var q;
+var B;
 function pe() {
-  return q || (q = 1, process.env.NODE_ENV === "production" ? _.exports = de() : _.exports = fe()), _.exports;
+  return B || (B = 1, process.env.NODE_ENV === "production" ? _.exports = de() : _.exports = fe()), _.exports;
 }
 var r = pe();
-function B() {
+function J() {
   return typeof window > "u" ? "pc" : window.innerWidth <= 768 ? "mob" : window.innerWidth <= 1024 ? "tab" : "pc";
 }
 const k = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children: t }) => /* @__PURE__ */ r.jsx("div", { className: "select-none pointer-events-none opacity-50", children: t }), j = (t, i = !1) => !!i || !!t?.blocked, G = ({
@@ -480,10 +480,10 @@ const k = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children:
     ) })
   ] });
 };
-function je({ navJson: t, hideLabel: i = !1 }) {
-  const [d, f] = $(B()), o = t?.layout || "vertical";
+function je({ config: t, hideLabel: i = !1 }) {
+  const [d, f] = $(J()), o = t?.layout || "vertical";
   ue(() => {
-    const n = () => f(B());
+    const n = () => f(J());
     return window.addEventListener("resize", n), () => window.removeEventListener("resize", n);
   }, []);
   const s = (t?.items || []).filter((n) => {

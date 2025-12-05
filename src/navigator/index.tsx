@@ -275,7 +275,7 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false }: any
   );
 };
 
-function Navigator({ navJson: config, hideLabel = false }: any) {
+function Navigator({ config, hideLabel = false }: any) {
   const [currentDevice, setCurrentDevice] = useState(getDeviceType());
   const layout = config?.layout || "vertical";
 
