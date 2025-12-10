@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
     <div className="flex h-screen">
       <div className="w-60 border-r">
-      <Navigator config={NavigationJson} />
+      <Navigator config={NavigationJson}  />
 
       </div>
     </div>

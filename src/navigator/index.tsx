@@ -202,11 +202,14 @@ const PopupMenu = ({ item }: { item: any }) => {
   );
 };
 
-const MenuRow = ({ item, children, isActive, isDisabled, paddingLeft }: any) => {
+const MenuRow = ({ item, children, isActive, isDisabled, paddingLeft, handleAjax }: any) => {
   const Wrapper: any = isDisabled ? "div" : item?.link ? NavLink : "div";
   return (
     <Wrapper
-      to={isDisabled ? undefined : item?.link}
+      to={isDisabled || item?.target === "ajax" ? undefined : item?.link}
+      onClick={() => {
+        if (!isDisabled && item?.target === "ajax") handleAjax(item?.link);
+      }}
       className={({ isActive: active }: any) =>
         `relative z-10 flex items-center gap-2 px-2 py-1
         ${isDisabled ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100 cursor-pointer"}
@@ -219,6 +222,7 @@ const MenuRow = ({ item, children, isActive, isDisabled, paddingLeft }: any) => 
     </Wrapper>
   );
 };
+
 
 const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false }: any) => {
   const [open, setOpen] = useState(false);
@@ -275,7 +279,7 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false }: any
   );
 };
 
-function Navigator({ config, hideLabel = false }: any) {
+function Navigator({ config, hideLabel = false ,handleAjax}: any) {
   const [currentDevice, setCurrentDevice] = useState(getDeviceType());
   const layout = config?.layout || "vertical";
 
@@ -314,8 +318,11 @@ function Navigator({ config, hideLabel = false }: any) {
           ) : (
             <NavLink
               key={index}
-              to={item?.link || "#"}
-              className={`flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${
+                to={item?.target === "ajax" ? undefined : item?.link}
+                  onClick={() => {
+                    if (item?.target === "ajax") handleAjax(item?.link);
+                  }}
+                  className={`flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${
                 isItemBlocked(item) ? "opacity-50 pointer-events-none" : ""
               }`}
             >
@@ -340,8 +347,11 @@ function Navigator({ config, hideLabel = false }: any) {
           ) : (
             <NavLink
               key={index}
-              to={item?.link || "#"}
-              className={`flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${
+              to={item?.target === "ajax" ? undefined : item?.link}
+                onClick={() => {
+                  if (item?.target === "ajax") handleAjax(item?.link);
+                }}
+                className={`flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${
                 isItemBlocked(item) ? "opacity-50 pointer-events-none" : ""
               }`}
             >
