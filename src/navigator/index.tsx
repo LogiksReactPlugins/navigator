@@ -224,7 +224,7 @@ const MenuRow = ({ item, children, isActive, isDisabled, paddingLeft, handleAjax
 };
 
 
-const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false }: any) => {
+const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false ,handleAjax}: any) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const children = Array.isArray(items) ? items : [];
@@ -260,6 +260,8 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false }: any
                 items={item.children}
                 hideLabel={hideLabel}
                 ancestorBlocked={blocked}
+
+                handleAjax={handleAjax}
               />
             ) : (
               <MenuRow
@@ -267,6 +269,8 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false }: any
                 item={item}
                 paddingLeft={10}
                 isDisabled={isItemBlocked(item, blocked)}
+
+                  handleAjax={handleAjax} 
                 isActive={item?.link === location.pathname}
               >
                 {item?.label || item?.title}
@@ -391,7 +395,7 @@ const visibleItems = (items || []).filter((item: any) => {
         .sort((a: any, b: any) => (a?.weight || 0) - (b?.weight || 0))
         .map((item: any, index: number) =>
           safeChildren(item).length ? (
-            <Dropdown key={index} parentItem={item} items={item.children} hideLabel={hideLabel} />
+            <Dropdown key={index} parentItem={item} items={item.children} hideLabel={hideLabel} handleAjax={handleAjax} />
           ) : (
             <NavLink
               key={index}

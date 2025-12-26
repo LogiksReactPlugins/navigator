@@ -14,23 +14,23 @@ var B;
 function de() {
   if (B) return T;
   B = 1;
-  var n = Symbol.for("react.transitional.element"), u = Symbol.for("react.fragment");
-  function d(f, l, s) {
-    var c = null;
-    if (s !== void 0 && (c = "" + s), l.key !== void 0 && (c = "" + l.key), "key" in l) {
+  var t = Symbol.for("react.transitional.element"), i = Symbol.for("react.fragment");
+  function u(f, l, s) {
+    var d = null;
+    if (s !== void 0 && (d = "" + s), l.key !== void 0 && (d = "" + l.key), "key" in l) {
       s = {};
       for (var p in l)
         p !== "key" && (s[p] = l[p]);
     } else s = l;
     return l = s.ref, {
-      $$typeof: n,
+      $$typeof: t,
       type: f,
-      key: c,
+      key: d,
       ref: l !== void 0 ? l : null,
       props: s
     };
   }
-  return T.Fragment = u, T.jsx = d, T.jsxs = d, T;
+  return T.Fragment = i, T.jsx = u, T.jsxs = u, T;
 }
 var A = {};
 /**
@@ -45,13 +45,13 @@ var A = {};
 var J;
 function fe() {
   return J || (J = 1, process.env.NODE_ENV !== "production" && (function() {
-    function n(e) {
+    function t(e) {
       if (e == null) return null;
       if (typeof e == "function")
         return e.$$typeof === le ? null : e.displayName || e.name || null;
       if (typeof e == "string") return e;
       switch (e) {
-        case m:
+        case b:
           return "Fragment";
         case K:
           return "Profiler";
@@ -68,53 +68,53 @@ function fe() {
         switch (typeof e.tag == "number" && console.error(
           "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
         ), e.$$typeof) {
-          case g:
+          case m:
             return "Portal";
           case re:
             return (e.displayName || "Context") + ".Provider";
           case ee:
             return (e._context.displayName || "Context") + ".Consumer";
           case te:
-            var a = e.render;
-            return e = e.displayName, e || (e = a.displayName || a.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
+            var o = e.render;
+            return e = e.displayName, e || (e = o.displayName || o.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
           case oe:
-            return a = e.displayName || null, a !== null ? a : n(e.type) || "Memo";
+            return o = e.displayName || null, o !== null ? o : t(e.type) || "Memo";
           case I:
-            a = e._payload, e = e._init;
+            o = e._payload, e = e._init;
             try {
-              return n(e(a));
+              return t(e(o));
             } catch {
             }
         }
       return null;
     }
-    function u(e) {
+    function i(e) {
       return "" + e;
     }
-    function d(e) {
+    function u(e) {
       try {
-        u(e);
-        var a = !1;
+        i(e);
+        var o = !1;
       } catch {
-        a = !0;
+        o = !0;
       }
-      if (a) {
-        a = console;
-        var i = a.error, h = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
-        return i.call(
-          a,
+      if (o) {
+        o = console;
+        var c = o.error, x = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
+        return c.call(
+          o,
           "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          h
-        ), u(e);
+          x
+        ), i(e);
       }
     }
     function f(e) {
-      if (e === m) return "<>";
+      if (e === b) return "<>";
       if (typeof e == "object" && e !== null && e.$$typeof === I)
         return "<...>";
       try {
-        var a = n(e);
-        return a ? "<" + a + ">" : "<...>";
+        var o = t(e);
+        return o ? "<" + o + ">" : "<...>";
       } catch {
         return "<...>";
       }
@@ -126,41 +126,41 @@ function fe() {
     function s() {
       return Error("react-stack-top-frame");
     }
-    function c(e) {
+    function d(e) {
       if (M.call(e, "key")) {
-        var a = Object.getOwnPropertyDescriptor(e, "key").get;
-        if (a && a.isReactWarning) return !1;
+        var o = Object.getOwnPropertyDescriptor(e, "key").get;
+        if (o && o.isReactWarning) return !1;
       }
       return e.key !== void 0;
     }
-    function p(e, a) {
-      function i() {
+    function p(e, o) {
+      function c() {
         D || (D = !0, console.error(
           "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
-          a
+          o
         ));
       }
-      i.isReactWarning = !0, Object.defineProperty(e, "key", {
-        get: i,
+      c.isReactWarning = !0, Object.defineProperty(e, "key", {
+        get: c,
         configurable: !0
       });
     }
-    function x() {
-      var e = n(this.type);
+    function g() {
+      var e = t(this.type);
       return z[e] || (z[e] = !0, console.error(
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), e = this.props.ref, e !== void 0 ? e : null;
     }
-    function k(e, a, i, h, y, j, $, L) {
-      return i = j.ref, e = {
+    function j(e, o, c, x, k, y, $, L) {
+      return c = y.ref, e = {
         $$typeof: R,
         type: e,
-        key: a,
-        props: j,
-        _owner: y
-      }, (i !== void 0 ? i : null) !== null ? Object.defineProperty(e, "ref", {
+        key: o,
+        props: y,
+        _owner: k
+      }, (c !== void 0 ? c : null) !== null ? Object.defineProperty(e, "ref", {
         enumerable: !1,
-        get: x
+        get: g
       }) : Object.defineProperty(e, "ref", { enumerable: !1, value: null }), e._store = {}, Object.defineProperty(e._store, "validated", {
         configurable: !1,
         enumerable: !1,
@@ -183,94 +183,94 @@ function fe() {
         value: L
       }), Object.freeze && (Object.freeze(e.props), Object.freeze(e)), e;
     }
-    function t(e, a, i, h, y, j, $, L) {
-      var v = a.children;
-      if (v !== void 0)
-        if (h)
-          if (ce(v)) {
-            for (h = 0; h < v.length; h++)
-              o(v[h]);
-            Object.freeze && Object.freeze(v);
+    function n(e, o, c, x, k, y, $, L) {
+      var h = o.children;
+      if (h !== void 0)
+        if (x)
+          if (ce(h)) {
+            for (x = 0; x < h.length; x++)
+              a(h[x]);
+            Object.freeze && Object.freeze(h);
           } else
             console.error(
               "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
             );
-        else o(v);
-      if (M.call(a, "key")) {
-        v = n(e);
-        var E = Object.keys(a).filter(function(ie) {
+        else a(h);
+      if (M.call(o, "key")) {
+        h = t(e);
+        var E = Object.keys(o).filter(function(ie) {
           return ie !== "key";
         });
-        h = 0 < E.length ? "{key: someKey, " + E.join(": ..., ") + ": ...}" : "{key: someKey}", q[v + h] || (E = 0 < E.length ? "{" + E.join(": ..., ") + ": ...}" : "{}", console.error(
+        x = 0 < E.length ? "{key: someKey, " + E.join(": ..., ") + ": ...}" : "{key: someKey}", q[h + x] || (E = 0 < E.length ? "{" + E.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
   <%s key={someKey} {...props} />`,
+          x,
           h,
-          v,
           E,
-          v
-        ), q[v + h] = !0);
+          h
+        ), q[h + x] = !0);
       }
-      if (v = null, i !== void 0 && (d(i), v = "" + i), c(a) && (d(a.key), v = "" + a.key), "key" in a) {
-        i = {};
-        for (var Y in a)
-          Y !== "key" && (i[Y] = a[Y]);
-      } else i = a;
-      return v && p(
-        i,
+      if (h = null, c !== void 0 && (u(c), h = "" + c), d(o) && (u(o.key), h = "" + o.key), "key" in o) {
+        c = {};
+        for (var Y in o)
+          Y !== "key" && (c[Y] = o[Y]);
+      } else c = o;
+      return h && p(
+        c,
         typeof e == "function" ? e.displayName || e.name || "Unknown" : e
-      ), k(
+      ), j(
         e,
-        v,
-        j,
+        h,
         y,
+        k,
         l(),
-        i,
+        c,
         $,
         L
       );
     }
-    function o(e) {
+    function a(e) {
       typeof e == "object" && e !== null && e.$$typeof === R && e._store && (e._store.validated = 1);
     }
-    var b = H, R = Symbol.for("react.transitional.element"), g = Symbol.for("react.portal"), m = Symbol.for("react.fragment"), _ = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), I = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), P = b.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, M = Object.prototype.hasOwnProperty, ce = Array.isArray, S = console.createTask ? console.createTask : function() {
+    var v = H, R = Symbol.for("react.transitional.element"), m = Symbol.for("react.portal"), b = Symbol.for("react.fragment"), _ = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), I = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), P = v.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, M = Object.prototype.hasOwnProperty, ce = Array.isArray, S = console.createTask ? console.createTask : function() {
       return null;
     };
-    b = {
+    v = {
       react_stack_bottom_frame: function(e) {
         return e();
       }
     };
-    var D, z = {}, F = b.react_stack_bottom_frame.bind(
-      b,
+    var D, z = {}, F = v.react_stack_bottom_frame.bind(
+      v,
       s
     )(), U = S(f(s)), q = {};
-    A.Fragment = m, A.jsx = function(e, a, i, h, y) {
-      var j = 1e4 > P.recentlyCreatedOwnerStacks++;
-      return t(
+    A.Fragment = b, A.jsx = function(e, o, c, x, k) {
+      var y = 1e4 > P.recentlyCreatedOwnerStacks++;
+      return n(
         e,
-        a,
-        i,
+        o,
+        c,
         !1,
-        h,
-        y,
-        j ? Error("react-stack-top-frame") : F,
-        j ? S(f(e)) : U
+        x,
+        k,
+        y ? Error("react-stack-top-frame") : F,
+        y ? S(f(e)) : U
       );
-    }, A.jsxs = function(e, a, i, h, y) {
-      var j = 1e4 > P.recentlyCreatedOwnerStacks++;
-      return t(
+    }, A.jsxs = function(e, o, c, x, k) {
+      var y = 1e4 > P.recentlyCreatedOwnerStacks++;
+      return n(
         e,
-        a,
-        i,
+        o,
+        c,
         !0,
-        h,
-        y,
-        j ? Error("react-stack-top-frame") : F,
-        j ? S(f(e)) : U
+        x,
+        k,
+        y ? Error("react-stack-top-frame") : F,
+        y ? S(f(e)) : U
       );
     };
   })()), A;
@@ -283,82 +283,82 @@ var r = pe();
 function G() {
   return typeof window > "u" ? "pc" : window.innerWidth <= 768 ? "mob" : window.innerWidth <= 1024 ? "tab" : "pc";
 }
-const N = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children: n }) => /* @__PURE__ */ r.jsx("div", { className: "select-none pointer-events-none opacity-50", children: n }), w = (n, u = !1) => !!u || !!n?.blocked, Z = ({
-  item: n,
-  level: u = 0,
-  isLast: d = !1,
+const N = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children: t }) => /* @__PURE__ */ r.jsx("div", { className: "select-none pointer-events-none opacity-50", children: t }), w = (t, i = !1) => !!i || !!t?.blocked, Z = ({
+  item: t,
+  level: i = 0,
+  isLast: u = !1,
   ancestorBlocked: f = !1
 }) => {
-  const l = X(), s = N(n), c = w(n, f), p = n?.link === l.pathname || s.some((o) => o?.link === l.pathname), x = u * 20, k = c ? "div" : n?.link ? O : "div", t = /* @__PURE__ */ r.jsxs(
-    k,
+  const l = X(), s = N(t), d = w(t, f), p = t?.link === l.pathname || s.some((a) => a?.link === l.pathname), g = i * 20, j = d ? "div" : t?.link ? O : "div", n = /* @__PURE__ */ r.jsxs(
+    j,
     {
-      to: c ? void 0 : n?.link,
+      to: d ? void 0 : t?.link,
       className: `relative z-10 flex items-center gap-2 py-1
-      ${c ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100 cursor-pointer"}
+      ${d ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100 cursor-pointer"}
       ${p ? "bg-gray-200" : ""}`,
-      style: { paddingLeft: x },
+      style: { paddingLeft: g },
       children: [
-        u > 0 && /* @__PURE__ */ r.jsx(
+        i > 0 && /* @__PURE__ */ r.jsx(
           "span",
           {
             className: "absolute h-px bg-gray-300 pointer-events-none",
             style: {
-              left: x - 10,
+              left: g - 10,
               width: 10,
               top: "50%"
             }
           }
         ),
-        n?.iconpath && /* @__PURE__ */ r.jsx("i", { className: n.iconpath }),
-        /* @__PURE__ */ r.jsx("span", { className: "truncate", children: n?.label || n?.title || "Untitled" })
+        t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
+        /* @__PURE__ */ r.jsx("span", { className: "truncate", children: t?.label || t?.title || "Untitled" })
       ]
     }
   );
   return /* @__PURE__ */ r.jsxs("div", { className: "relative", children: [
-    u > 0 && /* @__PURE__ */ r.jsx(
+    i > 0 && /* @__PURE__ */ r.jsx(
       "span",
       {
         className: "absolute w-px bg-gray-300 pointer-events-none",
         style: {
-          left: x - 10,
+          left: g - 10,
           top: 0,
-          bottom: d ? "calc(100% - 20px)" : 0
+          bottom: u ? "calc(100% - 20px)" : 0
         }
       }
     ),
-    c ? /* @__PURE__ */ r.jsx(xe, { children: t }) : t,
-    s.map((o, b) => /* @__PURE__ */ r.jsx(
+    d ? /* @__PURE__ */ r.jsx(xe, { children: n }) : n,
+    s.map((a, v) => /* @__PURE__ */ r.jsx(
       Z,
       {
-        item: o,
-        level: u + 1,
-        isLast: b === s.length - 1,
-        ancestorBlocked: c
+        item: a,
+        level: i + 1,
+        isLast: v === s.length - 1,
+        ancestorBlocked: d
       },
-      b
+      v
     ))
   ] });
-}, he = (n = "") => n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""), ve = ({ item: n }) => {
-  const [u, d] = W(!1), f = N(n), l = w(n, !1);
-  return /* @__PURE__ */ r.jsxs("div", { className: `relative navbar-popup navbar-popup-${he(n?.label)}`, children: [
+}, he = (t = "") => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""), ve = ({ item: t }) => {
+  const [i, u] = W(!1), f = N(t), l = w(t, !1);
+  return /* @__PURE__ */ r.jsxs("div", { className: `relative navbar-popup navbar-popup-${he(t?.label)}`, children: [
     /* @__PURE__ */ r.jsxs(
       "div",
       {
         onClick: () => {
-          l || d(!0);
+          l || u(!0);
         },
         className: `flex items-center gap-2 px-3 py-2 rounded-md transition-colors ${l ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100 cursor-pointer"}`,
         children: [
-          n?.iconpath && /* @__PURE__ */ r.jsx("i", { className: `${n.iconpath} text-gray-600` }),
-          /* @__PURE__ */ r.jsx("span", { className: "text-sm font-medium text-gray-700", children: n?.label || n?.title || "" })
+          t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: `${t.iconpath} text-gray-600` }),
+          /* @__PURE__ */ r.jsx("span", { className: "text-sm font-medium text-gray-700", children: t?.label || t?.title || "" })
         ]
       }
     ),
-    u && /* @__PURE__ */ r.jsx(
+    i && /* @__PURE__ */ r.jsx(
       "div",
       {
         className: "fixed inset-0 bg-black/50 backdrop-blur-sm flex justify-center items-center z-50 p-4",
-        onClick: () => d(!1),
+        onClick: () => u(!1),
         children: /* @__PURE__ */ r.jsxs(
           "div",
           {
@@ -366,11 +366,11 @@ const N = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
             onClick: (s) => s.stopPropagation(),
             children: [
               /* @__PURE__ */ r.jsxs("div", { className: "flex items-center justify-between px-3 md:px-6 py-2 md:py-4 border-b border-gray-200 bg-gray-50", children: [
-                /* @__PURE__ */ r.jsx("div", { children: /* @__PURE__ */ r.jsx("h3", { className: "text-xl font-semibold text-gray-800", children: n?.label || n?.title }) }),
+                /* @__PURE__ */ r.jsx("div", { children: /* @__PURE__ */ r.jsx("h3", { className: "text-xl font-semibold text-gray-800", children: t?.label || t?.title }) }),
                 /* @__PURE__ */ r.jsx(
                   "button",
                   {
-                    onClick: () => d(!1),
+                    onClick: () => u(!1),
                     className: "p-2 rounded-lg cursor-pointer hover:bg-gray-200 transition-colors group",
                     "aria-label": "Close",
                     children: /* @__PURE__ */ r.jsx(
@@ -386,14 +386,14 @@ const N = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
                   }
                 )
               ] }),
-              /* @__PURE__ */ r.jsx("div", { className: "overflow-y-auto p-3 md:p-6 bg-gray-50", children: f.length > 0 ? /* @__PURE__ */ r.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4", children: f.map((s, c) => {
-                const p = w(s, l), x = p ? "div" : O;
+              /* @__PURE__ */ r.jsx("div", { className: "overflow-y-auto p-3 md:p-6 bg-gray-50", children: f.length > 0 ? /* @__PURE__ */ r.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4", children: f.map((s, d) => {
+                const p = w(s, l), g = p ? "div" : O;
                 return /* @__PURE__ */ r.jsx(
-                  x,
+                  g,
                   {
                     to: p ? void 0 : s?.link || "#",
                     className: "group nav-link",
-                    onClick: () => d(!1),
+                    onClick: () => u(!1),
                     children: /* @__PURE__ */ r.jsxs(
                       "div",
                       {
@@ -406,7 +406,7 @@ const N = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
                       }
                     )
                   },
-                  c
+                  d
                 );
               }) }) : /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col items-center justify-center py-16", children: [
                 /* @__PURE__ */ r.jsx("div", { className: "w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mb-4", children: /* @__PURE__ */ r.jsx("svg", { className: "w-8 h-8 text-gray-400", fill: "none", stroke: "currentColor", viewBox: "0 0 24 24", children: /* @__PURE__ */ r.jsx("path", { strokeLinecap: "round", strokeLinejoin: "round", strokeWidth: 2, d: "M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" }) }) }),
@@ -419,140 +419,142 @@ const N = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
       }
     )
   ] });
-}, ge = ({ item: n, children: u, isActive: d, isDisabled: f, paddingLeft: l, handleAjax: s }) => {
-  const c = f ? "div" : n?.link ? O : "div";
+}, ge = ({ item: t, children: i, isActive: u, isDisabled: f, paddingLeft: l, handleAjax: s }) => {
+  const d = f ? "div" : t?.link ? O : "div";
   return /* @__PURE__ */ r.jsxs(
-    c,
+    d,
     {
-      to: f || n?.target === "ajax" ? void 0 : n?.link,
+      to: f || t?.target === "ajax" ? void 0 : t?.link,
       onClick: () => {
-        !f && n?.target === "ajax" && s(n?.link);
+        !f && t?.target === "ajax" && s(t?.link);
       },
       className: ({ isActive: p }) => `relative z-10 flex items-center gap-2 px-2 py-1
         ${f ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-100 cursor-pointer"}
-        ${p || d ? "bg-action text-white" : ""}`,
+        ${p || u ? "bg-action text-white" : ""}`,
       style: { paddingLeft: l },
       children: [
-        n?.iconpath && /* @__PURE__ */ r.jsx("i", { className: n.iconpath }),
-        /* @__PURE__ */ r.jsx("span", { className: "truncate", children: u })
+        t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
+        /* @__PURE__ */ r.jsx("span", { className: "truncate", children: i })
       ]
     }
   );
-}, Q = ({ parentItem: n, items: u, hideLabel: d, ancestorBlocked: f = !1 }) => {
-  const [l, s] = W(!1), c = X(), p = Array.isArray(u) ? u : [], x = w(n, f), k = p.some(
-    (t) => t?.link === c.pathname || N(t)?.some((o) => o?.link === c.pathname)
+}, Q = ({ parentItem: t, items: i, hideLabel: u, ancestorBlocked: f = !1, handleAjax: l }) => {
+  const [s, d] = W(!1), p = X(), g = Array.isArray(i) ? i : [], j = w(t, f), n = g.some(
+    (a) => a?.link === p.pathname || N(a)?.some((v) => v?.link === p.pathname)
   );
   return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col", children: [
     /* @__PURE__ */ r.jsxs(
       "div",
       {
         className: `flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200
-          ${x ? "opacity-50 cursor-not-allowed" : ""}
-          ${k ? "bg-action text-white" : ""}`,
+          ${j ? "opacity-50 cursor-not-allowed" : ""}
+          ${n ? "bg-action text-white" : ""}`,
         onClick: () => {
-          x || s(!l);
+          j || d(!s);
         },
         children: [
-          n?.iconpath && /* @__PURE__ */ r.jsx("i", { className: n.iconpath }),
-          !d && /* @__PURE__ */ r.jsx("span", { children: n?.label || n?.title || "" }),
-          /* @__PURE__ */ r.jsx("span", { className: "ml-auto", children: l ? "▲" : "▼" })
+          t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
+          !u && /* @__PURE__ */ r.jsx("span", { children: t?.label || t?.title || "" }),
+          /* @__PURE__ */ r.jsx("span", { className: "ml-auto", children: s ? "▲" : "▼" })
         ]
       }
     ),
-    l && /* @__PURE__ */ r.jsx("div", { className: "flex flex-col pl-4", children: p.map(
-      (t, o) => N(t).length ? /* @__PURE__ */ r.jsx(
+    s && /* @__PURE__ */ r.jsx("div", { className: "flex flex-col pl-4", children: g.map(
+      (a, v) => N(a).length ? /* @__PURE__ */ r.jsx(
         Q,
         {
-          parentItem: t,
-          items: t.children,
-          hideLabel: d,
-          ancestorBlocked: x
+          parentItem: a,
+          items: a.children,
+          hideLabel: u,
+          ancestorBlocked: j,
+          handleAjax: l
         },
-        o
+        v
       ) : /* @__PURE__ */ r.jsx(
         ge,
         {
-          item: t,
+          item: a,
           paddingLeft: 10,
-          isDisabled: w(t, x),
-          isActive: t?.link === c.pathname,
-          children: t?.label || t?.title
+          isDisabled: w(a, j),
+          handleAjax: l,
+          isActive: a?.link === p.pathname,
+          children: a?.label || a?.title
         },
-        o
+        v
       )
     ) })
   ] });
 };
-function je({ config: n, hideLabel: u = !1, handleAjax: d, treeView: f }) {
-  const [l, s] = W(G()), c = n?.layout || "vertical";
+function je({ config: t, hideLabel: i = !1, handleAjax: u, treeView: f }) {
+  const [l, s] = W(G()), d = t?.layout || "vertical";
   ue(() => {
-    const t = () => s(G());
-    return window.addEventListener("resize", t), () => window.removeEventListener("resize", t);
+    const n = () => s(G());
+    return window.addEventListener("resize", n), () => window.removeEventListener("resize", n);
   }, []);
-  const x = (H.useMemo(() => {
-    const t = n?.items || [];
-    if (!f) return t;
-    const o = /* @__PURE__ */ new Map(), b = /* @__PURE__ */ new Set(), R = [];
-    return t.forEach((g) => {
-      const m = g?.category;
-      if (!m) return;
-      o.has(m) || o.set(m, {
-        id: `group-${m}`,
-        title: m,
-        label: m,
+  const g = (H.useMemo(() => {
+    const n = t?.items || [];
+    if (!f) return n;
+    const a = /* @__PURE__ */ new Map(), v = /* @__PURE__ */ new Set(), R = [];
+    return n.forEach((m) => {
+      const b = m?.category;
+      if (!b) return;
+      a.has(b) || a.set(b, {
+        id: `group-${b}`,
+        title: b,
+        label: b,
         link: "#",
         iconpath: "fa fa-angle-right",
         onmenu: !0,
         device: "*",
         children: [],
-        weight: g.weight ?? 0
+        weight: m.weight ?? 0
       });
-      const _ = o.get(m);
-      _.children.push(g), b.add(m), g.weight != null && g.weight < _.weight && (_.weight = g.weight);
-    }), t.forEach((g) => {
-      !g?.category && !b.has(g.title) && R.push({ ...g });
-    }), [...R, ...o.values()];
-  }, [n?.items, f]) || []).filter((t) => {
-    if (!t || t.onmenu === !1) return !1;
-    const o = t.device;
-    return !o || o === "*" ? !0 : Array.isArray(o) ? o.includes(l) : o === l;
+      const _ = a.get(b);
+      _.children.push(m), v.add(b), m.weight != null && m.weight < _.weight && (_.weight = m.weight);
+    }), n.forEach((m) => {
+      !m?.category && !v.has(m.title) && R.push({ ...m });
+    }), [...R, ...a.values()];
+  }, [t?.items, f]) || []).filter((n) => {
+    if (!n || n.onmenu === !1) return !1;
+    const a = n.device;
+    return !a || a === "*" ? !0 : Array.isArray(a) ? a.includes(l) : a === l;
   });
-  if (c === "tree")
-    return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-1", children: x.map((t, o) => /* @__PURE__ */ r.jsx(Z, { item: t }, o)) });
-  if (c === "popup")
-    return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-2", children: x.map(
-      (t, o) => N(t).length ? /* @__PURE__ */ r.jsx(ve, { item: t }, o) : /* @__PURE__ */ r.jsxs(
+  if (d === "tree")
+    return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-1", children: g.map((n, a) => /* @__PURE__ */ r.jsx(Z, { item: n }, a)) });
+  if (d === "popup")
+    return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-2", children: g.map(
+      (n, a) => N(n).length ? /* @__PURE__ */ r.jsx(ve, { item: n }, a) : /* @__PURE__ */ r.jsxs(
         O,
         {
-          to: t?.target === "ajax" ? void 0 : t?.link,
+          to: n?.target === "ajax" ? void 0 : n?.link,
           onClick: () => {
-            t?.target === "ajax" && d(t?.link);
+            n?.target === "ajax" && u(n?.link);
           },
-          className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${w(t) ? "opacity-50 pointer-events-none" : ""}`,
+          className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${w(n) ? "opacity-50 pointer-events-none" : ""}`,
           children: [
-            t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
-            /* @__PURE__ */ r.jsx("span", { children: t?.label || t?.title })
+            n?.iconpath && /* @__PURE__ */ r.jsx("i", { className: n.iconpath }),
+            /* @__PURE__ */ r.jsx("span", { children: n?.label || n?.title })
           ]
         },
-        o
+        a
       )
     ) });
-  const k = c === "horizontal" ? "flex-row" : "flex-col";
-  return /* @__PURE__ */ r.jsx("nav", { className: `navigator flex ${k} gap-2 text-action`, style: { alignItems: "flex-start" }, children: x.sort((t, o) => (t?.weight || 0) - (o?.weight || 0)).map(
-    (t, o) => N(t).length ? /* @__PURE__ */ r.jsx(Q, { parentItem: t, items: t.children, hideLabel: u }, o) : /* @__PURE__ */ r.jsxs(
+  const j = d === "horizontal" ? "flex-row" : "flex-col";
+  return /* @__PURE__ */ r.jsx("nav", { className: `navigator flex ${j} gap-2 text-action`, style: { alignItems: "flex-start" }, children: g.sort((n, a) => (n?.weight || 0) - (a?.weight || 0)).map(
+    (n, a) => N(n).length ? /* @__PURE__ */ r.jsx(Q, { parentItem: n, items: n.children, hideLabel: i, handleAjax: u }, a) : /* @__PURE__ */ r.jsxs(
       O,
       {
-        to: t?.target === "ajax" ? void 0 : t?.link,
+        to: n?.target === "ajax" ? void 0 : n?.link,
         onClick: () => {
-          t?.target === "ajax" && d(t?.link);
+          n?.target === "ajax" && u(n?.link);
         },
-        className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${w(t) ? "opacity-50 pointer-events-none" : ""}`,
+        className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${w(n) ? "opacity-50 pointer-events-none" : ""}`,
         children: [
-          t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
-          !u && /* @__PURE__ */ r.jsx("span", { children: t?.label || t?.title || "" })
+          n?.iconpath && /* @__PURE__ */ r.jsx("i", { className: n.iconpath }),
+          !i && /* @__PURE__ */ r.jsx("span", { children: n?.label || n?.title || "" })
         ]
       },
-      o
+      a
     )
   ) });
 }
