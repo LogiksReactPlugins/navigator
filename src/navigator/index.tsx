@@ -238,7 +238,7 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false ,handl
   return (
     <div className="flex flex-col dropdown">
       <div
-        className={`flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200
+        className={`flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200 ${open ?"active":""}
           ${blocked ? "opacity-50 cursor-not-allowed" : ""}
           ${isChildActive ? "bg-action text-white" : ""}`}
         onClick={() => {

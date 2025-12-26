@@ -446,7 +446,7 @@ const N = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children:
     /* @__PURE__ */ r.jsxs(
       "div",
       {
-        className: `flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200
+        className: `flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200 ${s ? "active" : ""}
           ${j ? "opacity-50 cursor-not-allowed" : ""}
           ${n ? "bg-action text-white" : ""}`,
         onClick: () => {
