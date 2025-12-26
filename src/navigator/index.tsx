@@ -289,45 +289,53 @@ function Navigator({ config, hideLabel = false ,handleAjax,treeView}: any) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-    const items = React.useMemo(() => {
-    const rawItems = config?.items || [];
-    if (!treeView) return rawItems;
 
-    const map = new Map<string, any>();
 
-    rawItems.forEach((item: any) => {
-      const category = item?.category;
+  const items = React.useMemo(() => {
+  const rawItems = config?.items || [];
+  if (!treeView) return rawItems;
 
-      if (!category) {
-        map.set(item.id, item);
-        return;
-      }
+  const groups = new Map<string, any>();
+  const roots: any[] = [];
 
-      let parent = [...map.values()].find(
-        (i: any) => i.title === category && !i.category
-      );
+  rawItems.forEach((item: any) => {
+    const category = item?.category;
 
-      if (!parent) {
-        parent = {
-          id: `group-${category}`,
-          title: category,
-          label: category,
-          link: "#",
-          iconpath: "fa fa-angle-right",
-          children: [],
-          onmenu: true,
-          device: "*",
-        };
-        map.set(parent.id, parent);
-      }
+    if (!category) {
+      roots.push({ ...item });
+      return;
+    }
 
-      parent.children.push(item);
-    });
+    if (!groups.has(category)) {
+      groups.set(category, {
+        id: `group-${category}`,
+        title: category,
+        label: category,
+        link: "#",
+        iconpath: "fa fa-angle-right",
+        onmenu: true,
+        device: "*",
+        children: [],
+        weight: item.weight ?? 0, 
+      });
+    }
 
-    return Array.from(map.values());
-  }, [config?.items, treeView]);
+    const group = groups.get(category);
+    group.children.push(item);
 
-  const visibleItems = (items || []).filter((item: any) => {
+    if (item.weight != null && item.weight < group.weight) {
+      group.weight = item.weight;
+    }
+  });
+
+  return [...roots, ...groups.values()];
+}, [config?.items, treeView]);
+
+
+
+
+
+const visibleItems = (items || []).filter((item: any) => {
     if (!item) return false;
     if (item.onmenu === false) return false;
 

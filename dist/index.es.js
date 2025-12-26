@@ -51,7 +51,7 @@ function fe() {
         return e.$$typeof === le ? null : e.displayName || e.name || null;
       if (typeof e == "string") return e;
       switch (e) {
-        case E:
+        case w:
           return "Fragment";
         case K:
           return "Profiler";
@@ -68,7 +68,7 @@ function fe() {
         switch (typeof e.tag == "number" && console.error(
           "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
         ), e.$$typeof) {
-          case k:
+          case j:
             return "Portal";
           case re:
             return (e.displayName || "Context") + ".Provider";
@@ -100,16 +100,16 @@ function fe() {
       }
       if (a) {
         a = console;
-        var i = a.error, v = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
+        var i = a.error, h = typeof Symbol == "function" && Symbol.toStringTag && e[Symbol.toStringTag] || e.constructor.name || "Object";
         return i.call(
           a,
           "The provided key is an unsupported type %s. This value must be coerced to a string before using it here.",
-          v
+          h
         ), u(e);
       }
     }
     function f(e) {
-      if (e === E) return "<>";
+      if (e === w) return "<>";
       if (typeof e == "object" && e !== null && e.$$typeof === W)
         return "<...>";
       try {
@@ -151,13 +151,13 @@ function fe() {
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), e = this.props.ref, e !== void 0 ? e : null;
     }
-    function y(e, a, i, v, j, g, S, $) {
-      return i = g.ref, e = {
-        $$typeof: b,
+    function y(e, a, i, h, k, b, S, $) {
+      return i = b.ref, e = {
+        $$typeof: m,
         type: e,
         key: a,
-        props: g,
-        _owner: j
+        props: b,
+        _owner: k
       }, (i !== void 0 ? i : null) !== null ? Object.defineProperty(e, "ref", {
         enumerable: !1,
         get: x
@@ -183,50 +183,50 @@ function fe() {
         value: $
       }), Object.freeze && (Object.freeze(e.props), Object.freeze(e)), e;
     }
-    function t(e, a, i, v, j, g, S, $) {
-      var h = a.children;
-      if (h !== void 0)
-        if (v)
-          if (ce(h)) {
-            for (v = 0; v < h.length; v++)
-              o(h[v]);
-            Object.freeze && Object.freeze(h);
+    function t(e, a, i, h, k, b, S, $) {
+      var v = a.children;
+      if (v !== void 0)
+        if (h)
+          if (ce(v)) {
+            for (h = 0; h < v.length; h++)
+              o(v[h]);
+            Object.freeze && Object.freeze(v);
           } else
             console.error(
               "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
             );
-        else o(h);
+        else o(v);
       if (I.call(a, "key")) {
-        h = n(e);
-        var w = Object.keys(a).filter(function(ie) {
+        v = n(e);
+        var E = Object.keys(a).filter(function(ie) {
           return ie !== "key";
         });
-        v = 0 < w.length ? "{key: someKey, " + w.join(": ..., ") + ": ...}" : "{key: someKey}", U[h + v] || (w = 0 < w.length ? "{" + w.join(": ..., ") + ": ...}" : "{}", console.error(
+        h = 0 < E.length ? "{key: someKey, " + E.join(": ..., ") + ": ...}" : "{key: someKey}", U[v + h] || (E = 0 < E.length ? "{" + E.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
 React keys must be passed directly to JSX without using spread:
   let props = %s;
   <%s key={someKey} {...props} />`,
-          v,
           h,
-          w,
-          h
-        ), U[h + v] = !0);
+          v,
+          E,
+          v
+        ), U[v + h] = !0);
       }
-      if (h = null, i !== void 0 && (d(i), h = "" + i), c(a) && (d(a.key), h = "" + a.key), "key" in a) {
+      if (v = null, i !== void 0 && (d(i), v = "" + i), c(a) && (d(a.key), v = "" + a.key), "key" in a) {
         i = {};
         for (var L in a)
           L !== "key" && (i[L] = a[L]);
       } else i = a;
-      return h && p(
+      return v && p(
         i,
         typeof e == "function" ? e.displayName || e.name || "Unknown" : e
       ), y(
         e,
-        h,
-        g,
-        j,
+        v,
+        b,
+        k,
         l(),
         i,
         S,
@@ -234,43 +234,43 @@ React keys must be passed directly to JSX without using spread:
       );
     }
     function o(e) {
-      typeof e == "object" && e !== null && e.$$typeof === b && e._store && (e._store.validated = 1);
+      typeof e == "object" && e !== null && e.$$typeof === m && e._store && (e._store.validated = 1);
     }
-    var m = G, b = Symbol.for("react.transitional.element"), k = Symbol.for("react.portal"), E = Symbol.for("react.fragment"), Q = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), W = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), C = m.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, I = Object.prototype.hasOwnProperty, ce = Array.isArray, P = console.createTask ? console.createTask : function() {
+    var g = G, m = Symbol.for("react.transitional.element"), j = Symbol.for("react.portal"), w = Symbol.for("react.fragment"), Q = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), W = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), C = g.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, I = Object.prototype.hasOwnProperty, ce = Array.isArray, P = console.createTask ? console.createTask : function() {
       return null;
     };
-    m = {
+    g = {
       react_stack_bottom_frame: function(e) {
         return e();
       }
     };
-    var M, D = {}, z = m.react_stack_bottom_frame.bind(
-      m,
+    var M, D = {}, z = g.react_stack_bottom_frame.bind(
+      g,
       s
     )(), F = P(f(s)), U = {};
-    T.Fragment = E, T.jsx = function(e, a, i, v, j) {
-      var g = 1e4 > C.recentlyCreatedOwnerStacks++;
+    T.Fragment = w, T.jsx = function(e, a, i, h, k) {
+      var b = 1e4 > C.recentlyCreatedOwnerStacks++;
       return t(
         e,
         a,
         i,
         !1,
-        v,
-        j,
-        g ? Error("react-stack-top-frame") : z,
-        g ? P(f(e)) : F
+        h,
+        k,
+        b ? Error("react-stack-top-frame") : z,
+        b ? P(f(e)) : F
       );
-    }, T.jsxs = function(e, a, i, v, j) {
-      var g = 1e4 > C.recentlyCreatedOwnerStacks++;
+    }, T.jsxs = function(e, a, i, h, k) {
+      var b = 1e4 > C.recentlyCreatedOwnerStacks++;
       return t(
         e,
         a,
         i,
         !0,
-        v,
-        j,
-        g ? Error("react-stack-top-frame") : z,
-        g ? P(f(e)) : F
+        h,
+        k,
+        b ? Error("react-stack-top-frame") : z,
+        b ? P(f(e)) : F
       );
     };
   })()), T;
@@ -327,20 +327,20 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
       }
     ),
     c ? /* @__PURE__ */ r.jsx(xe, { children: t }) : t,
-    s.map((o, m) => /* @__PURE__ */ r.jsx(
+    s.map((o, g) => /* @__PURE__ */ r.jsx(
       X,
       {
         item: o,
         level: u + 1,
-        isLast: m === s.length - 1,
+        isLast: g === s.length - 1,
         ancestorBlocked: c
       },
-      m
+      g
     ))
   ] });
-}, ve = (n = "") => n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""), he = ({ item: n }) => {
+}, he = (n = "") => n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""), ve = ({ item: n }) => {
   const [u, d] = Y(!1), f = R(n), l = N(n, !1);
-  return /* @__PURE__ */ r.jsxs("div", { className: `relative navbar-popup navbar-popup-${ve(n?.label)}`, children: [
+  return /* @__PURE__ */ r.jsxs("div", { className: `relative navbar-popup navbar-popup-${he(n?.label)}`, children: [
     /* @__PURE__ */ r.jsxs(
       "div",
       {
@@ -419,7 +419,7 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
       }
     )
   ] });
-}, me = ({ item: n, children: u, isActive: d, isDisabled: f, paddingLeft: l, handleAjax: s }) => {
+}, ge = ({ item: n, children: u, isActive: d, isDisabled: f, paddingLeft: l, handleAjax: s }) => {
   const c = f ? "div" : n?.link ? A : "div";
   return /* @__PURE__ */ r.jsxs(
     c,
@@ -470,7 +470,7 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
         },
         o
       ) : /* @__PURE__ */ r.jsx(
-        me,
+        ge,
         {
           item: t,
           paddingLeft: 10,
@@ -492,27 +492,27 @@ function je({ config: n, hideLabel: u = !1, handleAjax: d, treeView: f }) {
   const x = (G.useMemo(() => {
     const t = n?.items || [];
     if (!f) return t;
-    const o = /* @__PURE__ */ new Map();
+    const o = /* @__PURE__ */ new Map(), g = [];
     return t.forEach((m) => {
-      const b = m?.category;
-      if (!b) {
-        o.set(m.id, m);
+      const j = m?.category;
+      if (!j) {
+        g.push({ ...m });
         return;
       }
-      let k = [...o.values()].find(
-        (E) => E.title === b && !E.category
-      );
-      k || (k = {
-        id: `group-${b}`,
-        title: b,
-        label: b,
+      o.has(j) || o.set(j, {
+        id: `group-${j}`,
+        title: j,
+        label: j,
         link: "#",
         iconpath: "fa fa-angle-right",
-        children: [],
         onmenu: !0,
-        device: "*"
-      }, o.set(k.id, k)), k.children.push(m);
-    }), Array.from(o.values());
+        device: "*",
+        children: [],
+        weight: m.weight ?? 0
+      });
+      const w = o.get(j);
+      w.children.push(m), m.weight != null && m.weight < w.weight && (w.weight = m.weight);
+    }), [...g, ...o.values()];
   }, [n?.items, f]) || []).filter((t) => {
     if (!t || t.onmenu === !1) return !1;
     const o = t.device;
@@ -522,7 +522,7 @@ function je({ config: n, hideLabel: u = !1, handleAjax: d, treeView: f }) {
     return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-1", children: x.map((t, o) => /* @__PURE__ */ r.jsx(X, { item: t }, o)) });
   if (c === "popup")
     return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-2", children: x.map(
-      (t, o) => R(t).length ? /* @__PURE__ */ r.jsx(he, { item: t }, o) : /* @__PURE__ */ r.jsxs(
+      (t, o) => R(t).length ? /* @__PURE__ */ r.jsx(ve, { item: t }, o) : /* @__PURE__ */ r.jsxs(
         A,
         {
           to: t?.target === "ajax" ? void 0 : t?.link,
