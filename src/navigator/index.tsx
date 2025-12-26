@@ -279,7 +279,7 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false }: any
   );
 };
 
-function Navigator({ config, hideLabel = false ,handleAjax}: any) {
+function Navigator({ config, hideLabel = false ,handleAjax,treeView}: any) {
   const [currentDevice, setCurrentDevice] = useState(getDeviceType());
   const layout = config?.layout || "vertical";
 
@@ -289,7 +289,45 @@ function Navigator({ config, hideLabel = false ,handleAjax}: any) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const visibleItems = (config?.items || []).filter((item: any) => {
+    const items = React.useMemo(() => {
+    const rawItems = config?.items || [];
+    if (!treeView) return rawItems;
+
+    const map = new Map<string, any>();
+
+    rawItems.forEach((item: any) => {
+      const category = item?.category;
+
+      if (!category) {
+        map.set(item.id, item);
+        return;
+      }
+
+      let parent = [...map.values()].find(
+        (i: any) => i.title === category && !i.category
+      );
+
+      if (!parent) {
+        parent = {
+          id: `group-${category}`,
+          title: category,
+          label: category,
+          link: "#",
+          iconpath: "fa fa-angle-right",
+          children: [],
+          onmenu: true,
+          device: "*",
+        };
+        map.set(parent.id, parent);
+      }
+
+      parent.children.push(item);
+    });
+
+    return Array.from(map.values());
+  }, [config?.items, treeView]);
+
+  const visibleItems = (items || []).filter((item: any) => {
     if (!item) return false;
     if (item.onmenu === false) return false;
 
