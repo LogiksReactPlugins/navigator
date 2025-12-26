@@ -1,6 +1,6 @@
-import G, { useState as Y, useEffect as ue } from "react";
-import { NavLink as A, useLocation as H } from "react-router-dom";
-var O = { exports: {} }, _ = {};
+import H, { useState as W, useEffect as ue } from "react";
+import { NavLink as O, useLocation as X } from "react-router-dom";
+var C = { exports: {} }, T = {};
 /**
  * @license React
  * react-jsx-runtime.production.js
@@ -10,10 +10,10 @@ var O = { exports: {} }, _ = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var q;
+var B;
 function de() {
-  if (q) return _;
-  q = 1;
+  if (B) return T;
+  B = 1;
   var n = Symbol.for("react.transitional.element"), u = Symbol.for("react.fragment");
   function d(f, l, s) {
     var c = null;
@@ -30,9 +30,9 @@ function de() {
       props: s
     };
   }
-  return _.Fragment = u, _.jsx = d, _.jsxs = d, _;
+  return T.Fragment = u, T.jsx = d, T.jsxs = d, T;
 }
-var T = {};
+var A = {};
 /**
  * @license React
  * react-jsx-runtime.development.js
@@ -42,20 +42,20 @@ var T = {};
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
-var B;
+var J;
 function fe() {
-  return B || (B = 1, process.env.NODE_ENV !== "production" && (function() {
+  return J || (J = 1, process.env.NODE_ENV !== "production" && (function() {
     function n(e) {
       if (e == null) return null;
       if (typeof e == "function")
         return e.$$typeof === le ? null : e.displayName || e.name || null;
       if (typeof e == "string") return e;
       switch (e) {
-        case w:
+        case m:
           return "Fragment";
         case K:
           return "Profiler";
-        case Q:
+        case _:
           return "StrictMode";
         case ne:
           return "Suspense";
@@ -68,7 +68,7 @@ function fe() {
         switch (typeof e.tag == "number" && console.error(
           "Received an unexpected object in getComponentNameFromType(). This is likely a bug in React. Please file an issue."
         ), e.$$typeof) {
-          case j:
+          case g:
             return "Portal";
           case re:
             return (e.displayName || "Context") + ".Provider";
@@ -79,7 +79,7 @@ function fe() {
             return e = e.displayName, e || (e = a.displayName || a.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
           case oe:
             return a = e.displayName || null, a !== null ? a : n(e.type) || "Memo";
-          case W:
+          case I:
             a = e._payload, e = e._init;
             try {
               return n(e(a));
@@ -109,8 +109,8 @@ function fe() {
       }
     }
     function f(e) {
-      if (e === w) return "<>";
-      if (typeof e == "object" && e !== null && e.$$typeof === W)
+      if (e === m) return "<>";
+      if (typeof e == "object" && e !== null && e.$$typeof === I)
         return "<...>";
       try {
         var a = n(e);
@@ -120,14 +120,14 @@ function fe() {
       }
     }
     function l() {
-      var e = C.A;
+      var e = P.A;
       return e === null ? null : e.getOwner();
     }
     function s() {
       return Error("react-stack-top-frame");
     }
     function c(e) {
-      if (I.call(e, "key")) {
+      if (M.call(e, "key")) {
         var a = Object.getOwnPropertyDescriptor(e, "key").get;
         if (a && a.isReactWarning) return !1;
       }
@@ -135,7 +135,7 @@ function fe() {
     }
     function p(e, a) {
       function i() {
-        M || (M = !0, console.error(
+        D || (D = !0, console.error(
           "%s: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)",
           a
         ));
@@ -147,17 +147,17 @@ function fe() {
     }
     function x() {
       var e = n(this.type);
-      return D[e] || (D[e] = !0, console.error(
+      return z[e] || (z[e] = !0, console.error(
         "Accessing element.ref was removed in React 19. ref is now a regular prop. It will be removed from the JSX Element type in a future release."
       )), e = this.props.ref, e !== void 0 ? e : null;
     }
-    function y(e, a, i, h, k, b, S, $) {
-      return i = b.ref, e = {
-        $$typeof: m,
+    function k(e, a, i, h, y, j, $, L) {
+      return i = j.ref, e = {
+        $$typeof: R,
         type: e,
         key: a,
-        props: b,
-        _owner: k
+        props: j,
+        _owner: y
       }, (i !== void 0 ? i : null) !== null ? Object.defineProperty(e, "ref", {
         enumerable: !1,
         get: x
@@ -175,15 +175,15 @@ function fe() {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: S
+        value: $
       }), Object.defineProperty(e, "_debugTask", {
         configurable: !1,
         enumerable: !1,
         writable: !0,
-        value: $
+        value: L
       }), Object.freeze && (Object.freeze(e.props), Object.freeze(e)), e;
     }
-    function t(e, a, i, h, k, b, S, $) {
+    function t(e, a, i, h, y, j, $, L) {
       var v = a.children;
       if (v !== void 0)
         if (h)
@@ -196,12 +196,12 @@ function fe() {
               "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
             );
         else o(v);
-      if (I.call(a, "key")) {
+      if (M.call(a, "key")) {
         v = n(e);
         var E = Object.keys(a).filter(function(ie) {
           return ie !== "key";
         });
-        h = 0 < E.length ? "{key: someKey, " + E.join(": ..., ") + ": ...}" : "{key: someKey}", U[v + h] || (E = 0 < E.length ? "{" + E.join(": ..., ") + ": ...}" : "{}", console.error(
+        h = 0 < E.length ? "{key: someKey, " + E.join(": ..., ") + ": ...}" : "{key: someKey}", q[v + h] || (E = 0 < E.length ? "{" + E.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
@@ -212,85 +212,85 @@ React keys must be passed directly to JSX without using spread:
           v,
           E,
           v
-        ), U[v + h] = !0);
+        ), q[v + h] = !0);
       }
       if (v = null, i !== void 0 && (d(i), v = "" + i), c(a) && (d(a.key), v = "" + a.key), "key" in a) {
         i = {};
-        for (var L in a)
-          L !== "key" && (i[L] = a[L]);
+        for (var Y in a)
+          Y !== "key" && (i[Y] = a[Y]);
       } else i = a;
       return v && p(
         i,
         typeof e == "function" ? e.displayName || e.name || "Unknown" : e
-      ), y(
+      ), k(
         e,
         v,
-        b,
-        k,
+        j,
+        y,
         l(),
         i,
-        S,
-        $
+        $,
+        L
       );
     }
     function o(e) {
-      typeof e == "object" && e !== null && e.$$typeof === m && e._store && (e._store.validated = 1);
+      typeof e == "object" && e !== null && e.$$typeof === R && e._store && (e._store.validated = 1);
     }
-    var g = G, m = Symbol.for("react.transitional.element"), j = Symbol.for("react.portal"), w = Symbol.for("react.fragment"), Q = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), W = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), C = g.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, I = Object.prototype.hasOwnProperty, ce = Array.isArray, P = console.createTask ? console.createTask : function() {
+    var b = H, R = Symbol.for("react.transitional.element"), g = Symbol.for("react.portal"), m = Symbol.for("react.fragment"), _ = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), I = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), P = b.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, M = Object.prototype.hasOwnProperty, ce = Array.isArray, S = console.createTask ? console.createTask : function() {
       return null;
     };
-    g = {
+    b = {
       react_stack_bottom_frame: function(e) {
         return e();
       }
     };
-    var M, D = {}, z = g.react_stack_bottom_frame.bind(
-      g,
+    var D, z = {}, F = b.react_stack_bottom_frame.bind(
+      b,
       s
-    )(), F = P(f(s)), U = {};
-    T.Fragment = w, T.jsx = function(e, a, i, h, k) {
-      var b = 1e4 > C.recentlyCreatedOwnerStacks++;
+    )(), U = S(f(s)), q = {};
+    A.Fragment = m, A.jsx = function(e, a, i, h, y) {
+      var j = 1e4 > P.recentlyCreatedOwnerStacks++;
       return t(
         e,
         a,
         i,
         !1,
         h,
-        k,
-        b ? Error("react-stack-top-frame") : z,
-        b ? P(f(e)) : F
+        y,
+        j ? Error("react-stack-top-frame") : F,
+        j ? S(f(e)) : U
       );
-    }, T.jsxs = function(e, a, i, h, k) {
-      var b = 1e4 > C.recentlyCreatedOwnerStacks++;
+    }, A.jsxs = function(e, a, i, h, y) {
+      var j = 1e4 > P.recentlyCreatedOwnerStacks++;
       return t(
         e,
         a,
         i,
         !0,
         h,
-        k,
-        b ? Error("react-stack-top-frame") : z,
-        b ? P(f(e)) : F
+        y,
+        j ? Error("react-stack-top-frame") : F,
+        j ? S(f(e)) : U
       );
     };
-  })()), T;
+  })()), A;
 }
-var J;
+var V;
 function pe() {
-  return J || (J = 1, process.env.NODE_ENV === "production" ? O.exports = de() : O.exports = fe()), O.exports;
+  return V || (V = 1, process.env.NODE_ENV === "production" ? C.exports = de() : C.exports = fe()), C.exports;
 }
 var r = pe();
-function V() {
+function G() {
   return typeof window > "u" ? "pc" : window.innerWidth <= 768 ? "mob" : window.innerWidth <= 1024 ? "tab" : "pc";
 }
-const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children: n }) => /* @__PURE__ */ r.jsx("div", { className: "select-none pointer-events-none opacity-50", children: n }), N = (n, u = !1) => !!u || !!n?.blocked, X = ({
+const N = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children: n }) => /* @__PURE__ */ r.jsx("div", { className: "select-none pointer-events-none opacity-50", children: n }), w = (n, u = !1) => !!u || !!n?.blocked, Z = ({
   item: n,
   level: u = 0,
   isLast: d = !1,
   ancestorBlocked: f = !1
 }) => {
-  const l = H(), s = R(n), c = N(n, f), p = n?.link === l.pathname || s.some((o) => o?.link === l.pathname), x = u * 20, y = c ? "div" : n?.link ? A : "div", t = /* @__PURE__ */ r.jsxs(
-    y,
+  const l = X(), s = N(n), c = w(n, f), p = n?.link === l.pathname || s.some((o) => o?.link === l.pathname), x = u * 20, k = c ? "div" : n?.link ? O : "div", t = /* @__PURE__ */ r.jsxs(
+    k,
     {
       to: c ? void 0 : n?.link,
       className: `relative z-10 flex items-center gap-2 py-1
@@ -327,19 +327,19 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
       }
     ),
     c ? /* @__PURE__ */ r.jsx(xe, { children: t }) : t,
-    s.map((o, g) => /* @__PURE__ */ r.jsx(
-      X,
+    s.map((o, b) => /* @__PURE__ */ r.jsx(
+      Z,
       {
         item: o,
         level: u + 1,
-        isLast: g === s.length - 1,
+        isLast: b === s.length - 1,
         ancestorBlocked: c
       },
-      g
+      b
     ))
   ] });
 }, he = (n = "") => n.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""), ve = ({ item: n }) => {
-  const [u, d] = Y(!1), f = R(n), l = N(n, !1);
+  const [u, d] = W(!1), f = N(n), l = w(n, !1);
   return /* @__PURE__ */ r.jsxs("div", { className: `relative navbar-popup navbar-popup-${he(n?.label)}`, children: [
     /* @__PURE__ */ r.jsxs(
       "div",
@@ -387,7 +387,7 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
                 )
               ] }),
               /* @__PURE__ */ r.jsx("div", { className: "overflow-y-auto p-3 md:p-6 bg-gray-50", children: f.length > 0 ? /* @__PURE__ */ r.jsx("div", { className: "grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-4", children: f.map((s, c) => {
-                const p = N(s, l), x = p ? "div" : A;
+                const p = w(s, l), x = p ? "div" : O;
                 return /* @__PURE__ */ r.jsx(
                   x,
                   {
@@ -420,7 +420,7 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
     )
   ] });
 }, ge = ({ item: n, children: u, isActive: d, isDisabled: f, paddingLeft: l, handleAjax: s }) => {
-  const c = f ? "div" : n?.link ? A : "div";
+  const c = f ? "div" : n?.link ? O : "div";
   return /* @__PURE__ */ r.jsxs(
     c,
     {
@@ -438,9 +438,9 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
       ]
     }
   );
-}, Z = ({ parentItem: n, items: u, hideLabel: d, ancestorBlocked: f = !1 }) => {
-  const [l, s] = Y(!1), c = H(), p = Array.isArray(u) ? u : [], x = N(n, f), y = p.some(
-    (t) => t?.link === c.pathname || R(t)?.some((o) => o?.link === c.pathname)
+}, Q = ({ parentItem: n, items: u, hideLabel: d, ancestorBlocked: f = !1 }) => {
+  const [l, s] = W(!1), c = X(), p = Array.isArray(u) ? u : [], x = w(n, f), k = p.some(
+    (t) => t?.link === c.pathname || N(t)?.some((o) => o?.link === c.pathname)
   );
   return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col", children: [
     /* @__PURE__ */ r.jsxs(
@@ -448,7 +448,7 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
       {
         className: `flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200
           ${x ? "opacity-50 cursor-not-allowed" : ""}
-          ${y ? "bg-action text-white" : ""}`,
+          ${k ? "bg-action text-white" : ""}`,
         onClick: () => {
           x || s(!l);
         },
@@ -460,8 +460,8 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
       }
     ),
     l && /* @__PURE__ */ r.jsx("div", { className: "flex flex-col pl-4", children: p.map(
-      (t, o) => R(t).length ? /* @__PURE__ */ r.jsx(
-        Z,
+      (t, o) => N(t).length ? /* @__PURE__ */ r.jsx(
+        Q,
         {
           parentItem: t,
           items: t.children,
@@ -474,7 +474,7 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
         {
           item: t,
           paddingLeft: 10,
-          isDisabled: N(t, x),
+          isDisabled: w(t, x),
           isActive: t?.link === c.pathname,
           children: t?.label || t?.title
         },
@@ -484,52 +484,51 @@ const R = (n) => Array.isArray(n?.children) ? n.children : [], xe = ({ children:
   ] });
 };
 function je({ config: n, hideLabel: u = !1, handleAjax: d, treeView: f }) {
-  const [l, s] = Y(V()), c = n?.layout || "vertical";
+  const [l, s] = W(G()), c = n?.layout || "vertical";
   ue(() => {
-    const t = () => s(V());
+    const t = () => s(G());
     return window.addEventListener("resize", t), () => window.removeEventListener("resize", t);
   }, []);
-  const x = (G.useMemo(() => {
+  const x = (H.useMemo(() => {
     const t = n?.items || [];
     if (!f) return t;
-    const o = /* @__PURE__ */ new Map(), g = [];
-    return t.forEach((m) => {
-      const j = m?.category;
-      if (!j) {
-        g.push({ ...m });
-        return;
-      }
-      o.has(j) || o.set(j, {
-        id: `group-${j}`,
-        title: j,
-        label: j,
+    const o = /* @__PURE__ */ new Map(), b = /* @__PURE__ */ new Set(), R = [];
+    return t.forEach((g) => {
+      const m = g?.category;
+      if (!m) return;
+      o.has(m) || o.set(m, {
+        id: `group-${m}`,
+        title: m,
+        label: m,
         link: "#",
         iconpath: "fa fa-angle-right",
         onmenu: !0,
         device: "*",
         children: [],
-        weight: m.weight ?? 0
+        weight: g.weight ?? 0
       });
-      const w = o.get(j);
-      w.children.push(m), m.weight != null && m.weight < w.weight && (w.weight = m.weight);
-    }), [...g, ...o.values()];
+      const _ = o.get(m);
+      _.children.push(g), b.add(m), g.weight != null && g.weight < _.weight && (_.weight = g.weight);
+    }), t.forEach((g) => {
+      !g?.category && !b.has(g.title) && R.push({ ...g });
+    }), [...R, ...o.values()];
   }, [n?.items, f]) || []).filter((t) => {
     if (!t || t.onmenu === !1) return !1;
     const o = t.device;
     return !o || o === "*" ? !0 : Array.isArray(o) ? o.includes(l) : o === l;
   });
   if (c === "tree")
-    return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-1", children: x.map((t, o) => /* @__PURE__ */ r.jsx(X, { item: t }, o)) });
+    return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-1", children: x.map((t, o) => /* @__PURE__ */ r.jsx(Z, { item: t }, o)) });
   if (c === "popup")
     return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-2", children: x.map(
-      (t, o) => R(t).length ? /* @__PURE__ */ r.jsx(ve, { item: t }, o) : /* @__PURE__ */ r.jsxs(
-        A,
+      (t, o) => N(t).length ? /* @__PURE__ */ r.jsx(ve, { item: t }, o) : /* @__PURE__ */ r.jsxs(
+        O,
         {
           to: t?.target === "ajax" ? void 0 : t?.link,
           onClick: () => {
             t?.target === "ajax" && d(t?.link);
           },
-          className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${N(t) ? "opacity-50 pointer-events-none" : ""}`,
+          className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${w(t) ? "opacity-50 pointer-events-none" : ""}`,
           children: [
             t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
             /* @__PURE__ */ r.jsx("span", { children: t?.label || t?.title })
@@ -538,16 +537,16 @@ function je({ config: n, hideLabel: u = !1, handleAjax: d, treeView: f }) {
         o
       )
     ) });
-  const y = c === "horizontal" ? "flex-row" : "flex-col";
-  return /* @__PURE__ */ r.jsx("nav", { className: `navigator flex ${y} gap-2 text-action`, style: { alignItems: "flex-start" }, children: x.sort((t, o) => (t?.weight || 0) - (o?.weight || 0)).map(
-    (t, o) => R(t).length ? /* @__PURE__ */ r.jsx(Z, { parentItem: t, items: t.children, hideLabel: u }, o) : /* @__PURE__ */ r.jsxs(
-      A,
+  const k = c === "horizontal" ? "flex-row" : "flex-col";
+  return /* @__PURE__ */ r.jsx("nav", { className: `navigator flex ${k} gap-2 text-action`, style: { alignItems: "flex-start" }, children: x.sort((t, o) => (t?.weight || 0) - (o?.weight || 0)).map(
+    (t, o) => N(t).length ? /* @__PURE__ */ r.jsx(Q, { parentItem: t, items: t.children, hideLabel: u }, o) : /* @__PURE__ */ r.jsxs(
+      O,
       {
         to: t?.target === "ajax" ? void 0 : t?.link,
         onClick: () => {
           t?.target === "ajax" && d(t?.link);
         },
-        className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${N(t) ? "opacity-50 pointer-events-none" : ""}`,
+        className: `flex items-center nav-link gap-2 px-2 py-1 hover:bg-gray-200 ${w(t) ? "opacity-50 pointer-events-none" : ""}`,
         children: [
           t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
           !u && /* @__PURE__ */ r.jsx("span", { children: t?.label || t?.title || "" })

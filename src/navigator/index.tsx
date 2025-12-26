@@ -290,21 +290,17 @@ function Navigator({ config, hideLabel = false ,handleAjax,treeView}: any) {
   }, []);
 
 
-
-  const items = React.useMemo(() => {
+const items = React.useMemo(() => {
   const rawItems = config?.items || [];
   if (!treeView) return rawItems;
 
   const groups = new Map<string, any>();
+  const usedAsParent = new Set<string | number>();
   const roots: any[] = [];
 
   rawItems.forEach((item: any) => {
     const category = item?.category;
-
-    if (!category) {
-      roots.push({ ...item });
-      return;
-    }
+    if (!category) return;
 
     if (!groups.has(category)) {
       groups.set(category, {
@@ -316,21 +312,27 @@ function Navigator({ config, hideLabel = false ,handleAjax,treeView}: any) {
         onmenu: true,
         device: "*",
         children: [],
-        weight: item.weight ?? 0, 
+        weight: item.weight ?? 0,
       });
     }
 
     const group = groups.get(category);
     group.children.push(item);
+    usedAsParent.add(category);
 
     if (item.weight != null && item.weight < group.weight) {
       group.weight = item.weight;
     }
   });
 
+  rawItems.forEach((item: any) => {
+    if (!item?.category && !usedAsParent.has(item.title)) {
+      roots.push({ ...item });
+    }
+  });
+
   return [...roots, ...groups.values()];
 }, [config?.items, treeView]);
-
 
 
 
