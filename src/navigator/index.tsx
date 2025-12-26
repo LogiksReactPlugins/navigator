@@ -247,7 +247,14 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false ,handl
       >
         {parentItem?.iconpath && <i className={parentItem.iconpath}></i>}
         {!hideLabel && <span>{parentItem?.label || parentItem?.title || ""}</span>}
-        <span className="ml-auto">{open ? "▲" : "▼"}</span>
+<span className="ml-auto">
+  <i
+    className={`fa-solid ${
+      open ? "fa-chevron-up" : "fa-chevron-down"
+    }`}
+    aria-hidden="true"
+  />
+</span>
       </div>
 
       {open && (

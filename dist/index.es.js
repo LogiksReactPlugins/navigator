@@ -198,10 +198,10 @@ function fe() {
         else a(h);
       if (M.call(o, "key")) {
         h = t(e);
-        var E = Object.keys(o).filter(function(ie) {
+        var N = Object.keys(o).filter(function(ie) {
           return ie !== "key";
         });
-        x = 0 < E.length ? "{key: someKey, " + E.join(": ..., ") + ": ...}" : "{key: someKey}", q[h + x] || (E = 0 < E.length ? "{" + E.join(": ..., ") + ": ...}" : "{}", console.error(
+        x = 0 < N.length ? "{key: someKey, " + N.join(": ..., ") + ": ...}" : "{key: someKey}", q[h + x] || (N = 0 < N.length ? "{" + N.join(": ..., ") + ": ...}" : "{}", console.error(
           `A props object containing a "key" prop is being spread into JSX:
   let props = %s;
   <%s {...props} />
@@ -210,7 +210,7 @@ React keys must be passed directly to JSX without using spread:
   <%s key={someKey} {...props} />`,
           x,
           h,
-          E,
+          N,
           h
         ), q[h + x] = !0);
       }
@@ -283,13 +283,13 @@ var r = pe();
 function G() {
   return typeof window > "u" ? "pc" : window.innerWidth <= 768 ? "mob" : window.innerWidth <= 1024 ? "tab" : "pc";
 }
-const N = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children: t }) => /* @__PURE__ */ r.jsx("div", { className: "select-none pointer-events-none opacity-50", children: t }), w = (t, i = !1) => !!i || !!t?.blocked, Z = ({
+const E = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children: t }) => /* @__PURE__ */ r.jsx("div", { className: "select-none pointer-events-none opacity-50", children: t }), w = (t, i = !1) => !!i || !!t?.blocked, Z = ({
   item: t,
   level: i = 0,
   isLast: u = !1,
   ancestorBlocked: f = !1
 }) => {
-  const l = X(), s = N(t), d = w(t, f), p = t?.link === l.pathname || s.some((a) => a?.link === l.pathname), g = i * 20, j = d ? "div" : t?.link ? O : "div", n = /* @__PURE__ */ r.jsxs(
+  const l = X(), s = E(t), d = w(t, f), p = t?.link === l.pathname || s.some((a) => a?.link === l.pathname), g = i * 20, j = d ? "div" : t?.link ? O : "div", n = /* @__PURE__ */ r.jsxs(
     j,
     {
       to: d ? void 0 : t?.link,
@@ -339,7 +339,7 @@ const N = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children:
     ))
   ] });
 }, he = (t = "") => t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""), ve = ({ item: t }) => {
-  const [i, u] = W(!1), f = N(t), l = w(t, !1);
+  const [i, u] = W(!1), f = E(t), l = w(t, !1);
   return /* @__PURE__ */ r.jsxs("div", { className: `relative navbar-popup navbar-popup-${he(t?.label)}`, children: [
     /* @__PURE__ */ r.jsxs(
       "div",
@@ -440,7 +440,7 @@ const N = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children:
   );
 }, Q = ({ parentItem: t, items: i, hideLabel: u, ancestorBlocked: f = !1, handleAjax: l }) => {
   const [s, d] = W(!1), p = X(), g = Array.isArray(i) ? i : [], j = w(t, f), n = g.some(
-    (a) => a?.link === p.pathname || N(a)?.some((v) => v?.link === p.pathname)
+    (a) => a?.link === p.pathname || E(a)?.some((v) => v?.link === p.pathname)
   );
   return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col dropdown", children: [
     /* @__PURE__ */ r.jsxs(
@@ -455,12 +455,18 @@ const N = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children:
         children: [
           t?.iconpath && /* @__PURE__ */ r.jsx("i", { className: t.iconpath }),
           !u && /* @__PURE__ */ r.jsx("span", { children: t?.label || t?.title || "" }),
-          /* @__PURE__ */ r.jsx("span", { className: "ml-auto", children: s ? "▲" : "▼" })
+          /* @__PURE__ */ r.jsx("span", { className: "ml-auto", children: /* @__PURE__ */ r.jsx(
+            "i",
+            {
+              className: `fa-solid ${s ? "fa-chevron-up" : "fa-chevron-down"}`,
+              "aria-hidden": "true"
+            }
+          ) })
         ]
       }
     ),
     s && /* @__PURE__ */ r.jsx("div", { className: "flex flex-col pl-4", children: g.map(
-      (a, v) => N(a).length ? /* @__PURE__ */ r.jsx(
+      (a, v) => E(a).length ? /* @__PURE__ */ r.jsx(
         Q,
         {
           parentItem: a,
@@ -523,7 +529,7 @@ function je({ config: t, hideLabel: i = !1, handleAjax: u, treeView: f }) {
     return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-1", children: g.map((n, a) => /* @__PURE__ */ r.jsx(Z, { item: n }, a)) });
   if (d === "popup")
     return /* @__PURE__ */ r.jsx("nav", { className: "navigator flex flex-col gap-2", children: g.map(
-      (n, a) => N(n).length ? /* @__PURE__ */ r.jsx(ve, { item: n }, a) : /* @__PURE__ */ r.jsxs(
+      (n, a) => E(n).length ? /* @__PURE__ */ r.jsx(ve, { item: n }, a) : /* @__PURE__ */ r.jsxs(
         O,
         {
           to: n?.target === "ajax" ? void 0 : n?.link,
@@ -541,7 +547,7 @@ function je({ config: t, hideLabel: i = !1, handleAjax: u, treeView: f }) {
     ) });
   const j = d === "horizontal" ? "flex-row" : "flex-col";
   return /* @__PURE__ */ r.jsx("nav", { className: `navigator flex ${j} gap-2 text-action`, style: { alignItems: "flex-start" }, children: g.sort((n, a) => (n?.weight || 0) - (a?.weight || 0)).map(
-    (n, a) => N(n).length ? /* @__PURE__ */ r.jsx(Q, { parentItem: n, items: n.children, hideLabel: i, handleAjax: u }, a) : /* @__PURE__ */ r.jsxs(
+    (n, a) => E(n).length ? /* @__PURE__ */ r.jsx(Q, { parentItem: n, items: n.children, hideLabel: i, handleAjax: u }, a) : /* @__PURE__ */ r.jsxs(
       O,
       {
         to: n?.target === "ajax" ? void 0 : n?.link,
