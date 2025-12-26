@@ -236,7 +236,7 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false ,handl
   );
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col dropdown">
       <div
         className={`flex items-center gap-2 px-2 py-1 cursor-pointer hover:bg-gray-200
           ${blocked ? "opacity-50 cursor-not-allowed" : ""}

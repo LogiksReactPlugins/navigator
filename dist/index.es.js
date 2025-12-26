@@ -442,7 +442,7 @@ const N = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children:
   const [s, d] = W(!1), p = X(), g = Array.isArray(i) ? i : [], j = w(t, f), n = g.some(
     (a) => a?.link === p.pathname || N(a)?.some((v) => v?.link === p.pathname)
   );
-  return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col", children: [
+  return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col dropdown", children: [
     /* @__PURE__ */ r.jsxs(
       "div",
       {
