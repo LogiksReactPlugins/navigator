@@ -230,6 +230,8 @@ const Dropdown = ({ parentItem, items, hideLabel, ancestorBlocked = false ,handl
   const children = Array.isArray(items) ? items : [];
   const blocked = isItemBlocked(parentItem, ancestorBlocked);
 
+  console.log({parentItem})
+
   const isChildActive = children.some(
     (item: any) =>
       item?.link === location.pathname || safeChildren(item)?.some((c: any) => c?.link === location.pathname)
@@ -319,7 +321,7 @@ const items = React.useMemo(() => {
         title: category,
         label: category,
         link: "#",
-        iconpath: "fa fa-angle-right",
+        iconpath: item?.iconpath,
         onmenu: true,
         device: "*",
         children: [],

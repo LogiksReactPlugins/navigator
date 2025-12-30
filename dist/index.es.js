@@ -79,7 +79,7 @@ function fe() {
             return e = e.displayName, e || (e = o.displayName || o.name || "", e = e !== "" ? "ForwardRef(" + e + ")" : "ForwardRef"), e;
           case oe:
             return o = e.displayName || null, o !== null ? o : t(e.type) || "Memo";
-          case I:
+          case M:
             o = e._payload, e = e._init;
             try {
               return t(e(o));
@@ -110,7 +110,7 @@ function fe() {
     }
     function f(e) {
       if (e === b) return "<>";
-      if (typeof e == "object" && e !== null && e.$$typeof === I)
+      if (typeof e == "object" && e !== null && e.$$typeof === M)
         return "<...>";
       try {
         var o = t(e);
@@ -127,7 +127,7 @@ function fe() {
       return Error("react-stack-top-frame");
     }
     function d(e) {
-      if (M.call(e, "key")) {
+      if (I.call(e, "key")) {
         var o = Object.getOwnPropertyDescriptor(e, "key").get;
         if (o && o.isReactWarning) return !1;
       }
@@ -196,7 +196,7 @@ function fe() {
               "React.jsx: Static children should always be an array. You are likely explicitly calling React.jsxs or React.jsxDEV. Use the Babel transform instead."
             );
         else a(h);
-      if (M.call(o, "key")) {
+      if (I.call(o, "key")) {
         h = t(e);
         var N = Object.keys(o).filter(function(ie) {
           return ie !== "key";
@@ -236,7 +236,7 @@ React keys must be passed directly to JSX without using spread:
     function a(e) {
       typeof e == "object" && e !== null && e.$$typeof === R && e._store && (e._store.validated = 1);
     }
-    var v = H, R = Symbol.for("react.transitional.element"), m = Symbol.for("react.portal"), b = Symbol.for("react.fragment"), _ = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), I = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), P = v.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, M = Object.prototype.hasOwnProperty, ce = Array.isArray, S = console.createTask ? console.createTask : function() {
+    var v = H, R = Symbol.for("react.transitional.element"), m = Symbol.for("react.portal"), b = Symbol.for("react.fragment"), _ = Symbol.for("react.strict_mode"), K = Symbol.for("react.profiler"), ee = Symbol.for("react.consumer"), re = Symbol.for("react.context"), te = Symbol.for("react.forward_ref"), ne = Symbol.for("react.suspense"), ae = Symbol.for("react.suspense_list"), oe = Symbol.for("react.memo"), M = Symbol.for("react.lazy"), se = Symbol.for("react.activity"), le = Symbol.for("react.client.reference"), P = v.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, I = Object.prototype.hasOwnProperty, ce = Array.isArray, S = console.createTask ? console.createTask : function() {
       return null;
     };
     v = {
@@ -439,7 +439,9 @@ const E = (t) => Array.isArray(t?.children) ? t.children : [], xe = ({ children:
     }
   );
 }, Q = ({ parentItem: t, items: i, hideLabel: u, ancestorBlocked: f = !1, handleAjax: l }) => {
-  const [s, d] = W(!1), p = X(), g = Array.isArray(i) ? i : [], j = w(t, f), n = g.some(
+  const [s, d] = W(!1), p = X(), g = Array.isArray(i) ? i : [], j = w(t, f);
+  console.log({ parentItem: t });
+  const n = g.some(
     (a) => a?.link === p.pathname || E(a)?.some((v) => v?.link === p.pathname)
   );
   return /* @__PURE__ */ r.jsxs("div", { className: "flex flex-col dropdown", children: [
@@ -509,7 +511,7 @@ function je({ config: t, hideLabel: i = !1, handleAjax: u, treeView: f }) {
         title: b,
         label: b,
         link: "#",
-        iconpath: "fa fa-angle-right",
+        iconpath: m?.iconpath,
         onmenu: !0,
         device: "*",
         children: [],
