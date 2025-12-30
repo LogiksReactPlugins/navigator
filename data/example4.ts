@@ -40,7 +40,7 @@ export const NavigationJson = {
         "menugroup": "",
         "class": "",
         "link": "#",
-        "iconpath": "fa fa-regular fa-circle",
+        "iconpath": "fa fa-regular fa-",
         "tips": "",
         "site": "*",
         "privilege": "",
@@ -50,11 +50,11 @@ export const NavigationJson = {
         "module": "-",
         "to_check": "",
         "weight": 0,
-        "blocked": "false",
+        "blocked": "",
         "created_by": "1",
         "created_on": "2025-12-29T08:55:28.000Z",
         "edited_by": "1",
-        "edited_on": "2025-12-29T09:40:29.000Z"
+        "edited_on": "2025-12-29T09:40:29.000Z",
     },
     {
         "id": 641,

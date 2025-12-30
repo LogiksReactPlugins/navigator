@@ -302,51 +302,51 @@ function Navigator({ config, hideLabel = false ,handleAjax,treeView}: any) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const normalizeIcon = (icon?: string) => {
+  if (!icon) return "fa fa-angle-right";
+  const v = icon.trim();
+  if (/^(fa|fas|far|fab|fa-solid|fa-regular|fa-brands)\s/.test(v)) return v;
+  return `fa-solid ${v.replace(/^fa-/, "")}`;
+};
+
 
 const items = React.useMemo(() => {
   const rawItems = config?.items || [];
   if (!treeView) return rawItems;
 
-  const groups = new Map<string, any>();
-  const usedAsParent = new Set<string | number>();
+  const byTitle = new Map<string, any>();
   const roots: any[] = [];
 
   rawItems.forEach((item: any) => {
-    const category = item?.category;
-    if (!category) return;
+    byTitle.set(item.title, {
+      ...item,
+      iconpath: normalizeIcon(item.iconpath),
+      children: [],
+    });
+  });
 
-    if (!groups.has(category)) {
-      groups.set(category, {
-        id: `group-${category}`,
-        title: category,
-        label: category,
-        link: "#",
-        iconpath: item?.iconpath,
-        onmenu: true,
-        device: "*",
-        children: [],
-        weight: item.weight ?? 0,
-      });
-    }
-
-    const group = groups.get(category);
-    group.children.push(item);
-    usedAsParent.add(category);
-
-    if (item.weight != null && item.weight < group.weight) {
-      group.weight = item.weight;
+  rawItems.forEach((item: any) => {
+    if (item.category) {
+      const parent = byTitle.get(item.category);
+      if (parent) {
+        parent.children.push(byTitle.get(item.title));
+      }
     }
   });
 
   rawItems.forEach((item: any) => {
-    if (!item?.category && !usedAsParent.has(item.title)) {
-      roots.push({ ...item });
+    if (!item.category) {
+      roots.push(byTitle.get(item.title));
     }
   });
 
-  return [...roots, ...groups.values()];
-}, [config?.items, treeView]);
+  const sortByWeight = (a: any, b: any) => (a.weight ?? 0) - (b.weight ?? 0);
 
+  roots.forEach((r) => r.children.sort(sortByWeight));
+  roots.sort(sortByWeight);
+
+  return roots;
+}, [config?.items, treeView]);
 
 
 
